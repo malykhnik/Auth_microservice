@@ -1,2 +1,19 @@
+spring:
+  application:
+    name: jwt-token-refresh-token
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jwt_practice
+    password: postgres
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 jwt:
   secret-key: weqjfnqbewfoi2371432yogr8qfwwgefb1ffh17803gf18g34fbasdsaf134fqf
