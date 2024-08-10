@@ -1,17 +1,15 @@
 package com.malykhnik.jwttokenrefreshtoken.security;
 
-import com.malykhnik.jwttokenrefreshtoken.service.InMemoryTokenBlackList;
+import com.malykhnik.jwttokenrefreshtoken.service.RedisTokenBlackList;
 import com.malykhnik.jwttokenrefreshtoken.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -28,7 +26,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private MyUserDetailsService userDetailsService;
 
     @Autowired
-    private InMemoryTokenBlackList tokenBlacklist;
+    private RedisTokenBlackList tokenBlacklist;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -41,7 +39,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             token = authHeader.substring(7);
 
             // Проверка на то, что токен в черном списке
-            if (tokenBlacklist.isBlacklisted(token)) {
+            if (tokenBlacklist.isBlacklisted(token) != null) {
                 // Если токен в черном списке, отправляем 401 и завершаем обработку
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 response.getWriter().write("Token is blacklisted");

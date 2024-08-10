@@ -6,7 +6,7 @@ import com.malykhnik.jwttokenrefreshtoken.dto.SignInDto;
 import com.malykhnik.jwttokenrefreshtoken.dto.SignUpDto;
 import com.malykhnik.jwttokenrefreshtoken.entity.RefreshToken;
 import com.malykhnik.jwttokenrefreshtoken.entity.User;
-import com.malykhnik.jwttokenrefreshtoken.service.InMemoryTokenBlackList;
+import com.malykhnik.jwttokenrefreshtoken.service.RedisTokenBlackList;
 import com.malykhnik.jwttokenrefreshtoken.service.JwtService;
 import com.malykhnik.jwttokenrefreshtoken.service.RefreshTokenService;
 import com.malykhnik.jwttokenrefreshtoken.service.UserService;
@@ -18,7 +18,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +30,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final UserService userService;
     private final RefreshTokenService refreshTokenService;
-    private final InMemoryTokenBlackList tokenBlacklist;
+    private final RedisTokenBlackList tokenBlacklist;
 
     @PostMapping("/login")
     public ResponseEntity<JwtResponseDto> authenticateAndGetToken(@RequestBody SignInDto signInDto) {
