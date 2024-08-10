@@ -20,14 +20,29 @@ public class RefreshTokenService {
 
     private final UserRepo userRepo;
 
-    public RefreshToken createRefreshToken(String username) {
+    public RefreshToken createOrUpdateRefreshToken(String username) {
         Optional<User> userOptional = userRepo.findByUsername(username);
         if (userOptional.isPresent()) {
-            RefreshToken refreshToken = RefreshToken.builder()
-                    .user(userOptional.get())
-                    .token(UUID.randomUUID().toString())
-                    .expiryDate(Instant.now().plusMillis(1000 * 60 * 5)) // 5 min
-                    .build();
+            User user = userOptional.get();
+
+            // Проверяем, есть ли уже RefreshToken для данного пользователя
+            Optional<RefreshToken> existingTokenOptional = refreshTokenRepo.findByUser(user);
+            RefreshToken refreshToken;
+
+            if (existingTokenOptional.isPresent()) {
+                // Если токен уже существует, обновляем его
+                refreshToken = existingTokenOptional.get();
+                refreshToken.setToken(UUID.randomUUID().toString());
+                refreshToken.setExpiryDate(Instant.now().plusMillis(1000 * 60 * 30)); // 30 мин
+            } else {
+                // Если токена нет, создаем новый
+                refreshToken = RefreshToken.builder()
+                        .user(user)
+                        .token(UUID.randomUUID().toString())
+                        .expiryDate(Instant.now().plusMillis(1000 * 60 * 30)) // 30 мин
+                        .build();
+            }
+
             return refreshTokenRepo.save(refreshToken);
         } else {
             throw new UsernameNotFoundException("Такого юзера нет!");

@@ -23,10 +23,16 @@ public class UserService {
         Optional<User> userOptional = userRepo.findByUsername(signUpDto.getUsername());
         if (userOptional.isEmpty()) {
             Optional<Role> roleOptional = roleRepo.findByName(signUpDto.getRole());
-            Role role = Role.builder()
-                    .name(signUpDto.getRole())
-                    .build();
-            if (roleOptional.isEmpty()) roleRepo.save(role);
+            Role role;
+
+            if (roleOptional.isPresent()) {
+                role = roleOptional.get();
+            } else {
+                role = Role.builder()
+                        .name(signUpDto.getRole())
+                        .build();
+                roleRepo.save(role);
+            }
 
             User user = User.builder()
                     .username(signUpDto.getUsername())
@@ -35,6 +41,7 @@ public class UserService {
                     .build();
             userRepo.save(user);
             return user;
+
         } else {
             throw new RuntimeException("Такой юзер уже есть!");
         }
