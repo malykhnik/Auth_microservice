@@ -66,15 +66,16 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of("http://localhost:5173"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowCredentials(true);
-        configuration.setAllowedHeaders((Arrays.asList("Authorization", "Content-Type", "X-Custom-Header", "range")));
-        configuration.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Origin", "Content-Range"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Custom-Header", "Range"));
+        configuration.setExposedHeaders(List.of("Content-Range"));
         configuration.setAllowCredentials(true);
         configuration.setMaxAge(3600L);
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
