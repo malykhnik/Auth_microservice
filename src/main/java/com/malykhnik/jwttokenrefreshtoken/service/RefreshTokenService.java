@@ -4,7 +4,9 @@ import com.malykhnik.jwttokenrefreshtoken.entity.RefreshToken;
 import com.malykhnik.jwttokenrefreshtoken.entity.User;
 import com.malykhnik.jwttokenrefreshtoken.repository.RefreshTokenRepository;
 import com.malykhnik.jwttokenrefreshtoken.repository.UserRepo;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -20,20 +22,20 @@ public class RefreshTokenService {
 
     private final UserRepo userRepo;
 
-    public RefreshToken createOrUpdateRefreshToken(String username) {
+    public String createOrUpdateRefreshToken(String username) {
         Optional<User> userOptional = userRepo.findByUsername(username);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
 
             // Проверяем, есть ли уже RefreshToken для данного пользователя
-            Optional<RefreshToken> existingTokenOptional = refreshTokenRepo.findByUser(user);
+            Optional<RefreshToken> refreshTokenOptional = refreshTokenRepo.findByUser(user);
             RefreshToken refreshToken;
 
-            if (existingTokenOptional.isPresent()) {
+            if (refreshTokenOptional.isPresent()) {
                 // Если токен уже существует, обновляем его
-                refreshToken = existingTokenOptional.get();
-                refreshToken.setToken(UUID.randomUUID().toString());
-                refreshToken.setExpiryDate(Instant.now().plusMillis(1000 * 60 * 30)); // 30 мин
+                refreshToken = refreshTokenOptional.get();
+                refreshTokenRepo.save(refreshToken);
+                return refreshToken.getToken();
             } else {
                 // Если токена нет, создаем новый
                 refreshToken = RefreshToken.builder()
@@ -41,9 +43,9 @@ public class RefreshTokenService {
                         .token(UUID.randomUUID().toString())
                         .expiryDate(Instant.now().plusMillis(1000 * 60 * 30)) // 30 мин
                         .build();
+                refreshTokenRepo.save(refreshToken);
+                return refreshToken.getToken();
             }
-
-            return refreshTokenRepo.save(refreshToken);
         } else {
             throw new UsernameNotFoundException("Такого юзера нет!");
         }

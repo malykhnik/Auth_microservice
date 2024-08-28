@@ -37,7 +37,7 @@ public class AuthController {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signInDto.getUsername(), signInDto.getPassword()));
         if (authentication.isAuthenticated()) {
             String accessToken = jwtService.generateToken(signInDto.getUsername());
-            String refreshToken = refreshTokenService.createOrUpdateRefreshToken(signInDto.getUsername()).getToken();
+            String refreshToken = refreshTokenService.createOrUpdateRefreshToken(signInDto.getUsername());
             return ResponseEntity.ok().body(JwtResponseDto.builder()
                     .accessToken(accessToken)
                     .refreshToken(refreshToken)
@@ -67,6 +67,7 @@ public class AuthController {
 
     @PostMapping("/refreshToken")
     public ResponseEntity<JwtResponseDto> refreshToken(@RequestBody RefreshTokenRequestDto refreshTokenRequestDTO) {
+        System.out.println(refreshTokenRequestDTO.toString());
         return ResponseEntity.ok().body(refreshTokenService.findByToken(refreshTokenRequestDTO.getToken())
                 .map(refreshTokenService::verifyExpiration)
                 .map(RefreshToken::getUser)
