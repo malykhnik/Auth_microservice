@@ -1,4 +1,4 @@
-package com.malykhnik.jwttokenrefreshtoken.entity;
+package com.malykhnik.jwttokenrefreshtoken.entity.securityEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

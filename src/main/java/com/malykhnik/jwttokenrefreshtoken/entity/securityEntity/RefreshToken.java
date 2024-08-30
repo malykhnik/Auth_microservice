@@ -1,4 +1,4 @@
-package com.malykhnik.jwttokenrefreshtoken.entity;
+package com.malykhnik.jwttokenrefreshtoken.entity.securityEntity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

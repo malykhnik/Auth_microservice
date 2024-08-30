@@ -1,4 +1,4 @@
-package com.malykhnik.jwttokenrefreshtoken.service;
+package com.malykhnik.jwttokenrefreshtoken.service.securityService;
 
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;

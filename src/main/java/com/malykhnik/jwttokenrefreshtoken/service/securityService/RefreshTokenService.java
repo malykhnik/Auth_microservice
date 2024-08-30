@@ -1,12 +1,10 @@
-package com.malykhnik.jwttokenrefreshtoken.service;
+package com.malykhnik.jwttokenrefreshtoken.service.securityService;
 
-import com.malykhnik.jwttokenrefreshtoken.entity.RefreshToken;
-import com.malykhnik.jwttokenrefreshtoken.entity.User;
-import com.malykhnik.jwttokenrefreshtoken.repository.RefreshTokenRepository;
-import com.malykhnik.jwttokenrefreshtoken.repository.UserRepo;
-import jakarta.servlet.http.HttpServletResponse;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.RefreshToken;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.User;
+import com.malykhnik.jwttokenrefreshtoken.repository.securityRepository.RefreshTokenRepository;
+import com.malykhnik.jwttokenrefreshtoken.repository.securityRepository.UserRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 

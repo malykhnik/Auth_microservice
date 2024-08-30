@@ -1,6 +1,6 @@
-package com.malykhnik.jwttokenrefreshtoken.repository;
+package com.malykhnik.jwttokenrefreshtoken.repository.securityRepository;
 
-import com.malykhnik.jwttokenrefreshtoken.entity.Role;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

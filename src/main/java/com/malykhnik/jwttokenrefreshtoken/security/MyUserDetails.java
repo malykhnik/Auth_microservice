@@ -1,7 +1,6 @@
 package com.malykhnik.jwttokenrefreshtoken.security;
 
-import com.malykhnik.jwttokenrefreshtoken.entity.User;
-import lombok.RequiredArgsConstructor;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

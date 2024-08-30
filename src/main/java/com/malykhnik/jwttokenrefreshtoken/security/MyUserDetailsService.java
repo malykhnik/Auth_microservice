@@ -1,8 +1,7 @@
 package com.malykhnik.jwttokenrefreshtoken.security;
 
-import com.malykhnik.jwttokenrefreshtoken.entity.User;
-import com.malykhnik.jwttokenrefreshtoken.repository.UserRepo;
-import lombok.RequiredArgsConstructor;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.User;
+import com.malykhnik.jwttokenrefreshtoken.repository.securityRepository.UserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

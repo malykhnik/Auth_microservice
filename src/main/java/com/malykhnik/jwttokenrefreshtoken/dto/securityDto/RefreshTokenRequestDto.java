@@ -1,4 +1,4 @@
-package com.malykhnik.jwttokenrefreshtoken.dto;
+package com.malykhnik.jwttokenrefreshtoken.dto.securityDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

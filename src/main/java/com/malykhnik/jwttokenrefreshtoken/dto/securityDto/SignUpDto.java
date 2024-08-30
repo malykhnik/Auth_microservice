@@ -1,4 +1,4 @@
-package com.malykhnik.jwttokenrefreshtoken.dto;
+package com.malykhnik.jwttokenrefreshtoken.dto.securityDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class JwtResponseDto {
-    private String accessToken;
-    private String refreshToken;
+public class SignUpDto {
+    private String username;
+    private String password;
+    private String role;
 }

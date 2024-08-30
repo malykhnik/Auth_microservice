@@ -1,15 +1,15 @@
-package com.malykhnik.jwttokenrefreshtoken.controller;
+package com.malykhnik.jwttokenrefreshtoken.controller.securityController;
 
-import com.malykhnik.jwttokenrefreshtoken.dto.JwtResponseDto;
-import com.malykhnik.jwttokenrefreshtoken.dto.RefreshTokenRequestDto;
-import com.malykhnik.jwttokenrefreshtoken.dto.SignInDto;
-import com.malykhnik.jwttokenrefreshtoken.dto.SignUpDto;
-import com.malykhnik.jwttokenrefreshtoken.entity.RefreshToken;
-import com.malykhnik.jwttokenrefreshtoken.entity.User;
-import com.malykhnik.jwttokenrefreshtoken.service.RedisTokenBlackList;
-import com.malykhnik.jwttokenrefreshtoken.service.JwtService;
-import com.malykhnik.jwttokenrefreshtoken.service.RefreshTokenService;
-import com.malykhnik.jwttokenrefreshtoken.service.UserService;
+import com.malykhnik.jwttokenrefreshtoken.dto.securityDto.JwtResponseDto;
+import com.malykhnik.jwttokenrefreshtoken.dto.securityDto.RefreshTokenRequestDto;
+import com.malykhnik.jwttokenrefreshtoken.dto.securityDto.SignInDto;
+import com.malykhnik.jwttokenrefreshtoken.dto.securityDto.SignUpDto;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.RefreshToken;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.User;
+import com.malykhnik.jwttokenrefreshtoken.service.securityService.RedisTokenBlackList;
+import com.malykhnik.jwttokenrefreshtoken.service.securityService.JwtService;
+import com.malykhnik.jwttokenrefreshtoken.service.securityService.RefreshTokenService;
+import com.malykhnik.jwttokenrefreshtoken.service.securityService.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

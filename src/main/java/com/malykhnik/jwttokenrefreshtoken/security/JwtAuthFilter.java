@@ -1,7 +1,7 @@
 package com.malykhnik.jwttokenrefreshtoken.security;
 
-import com.malykhnik.jwttokenrefreshtoken.service.RedisTokenBlackList;
-import com.malykhnik.jwttokenrefreshtoken.service.JwtService;
+import com.malykhnik.jwttokenrefreshtoken.service.securityService.RedisTokenBlackList;
+import com.malykhnik.jwttokenrefreshtoken.service.securityService.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

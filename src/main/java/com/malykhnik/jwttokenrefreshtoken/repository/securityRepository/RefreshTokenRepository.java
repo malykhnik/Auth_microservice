@@ -1,7 +1,7 @@
-package com.malykhnik.jwttokenrefreshtoken.repository;
+package com.malykhnik.jwttokenrefreshtoken.repository.securityRepository;
 
-import com.malykhnik.jwttokenrefreshtoken.entity.RefreshToken;
-import com.malykhnik.jwttokenrefreshtoken.entity.User;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.RefreshToken;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

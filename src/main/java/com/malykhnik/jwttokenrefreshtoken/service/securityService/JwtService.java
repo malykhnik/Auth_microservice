@@ -1,4 +1,4 @@
-package com.malykhnik.jwttokenrefreshtoken.service;
+package com.malykhnik.jwttokenrefreshtoken.service.securityService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

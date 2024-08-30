@@ -1,12 +1,11 @@
-package com.malykhnik.jwttokenrefreshtoken.service;
+package com.malykhnik.jwttokenrefreshtoken.service.securityService;
 
-import com.malykhnik.jwttokenrefreshtoken.dto.SignUpDto;
-import com.malykhnik.jwttokenrefreshtoken.entity.Role;
-import com.malykhnik.jwttokenrefreshtoken.entity.User;
-import com.malykhnik.jwttokenrefreshtoken.repository.RoleRepo;
-import com.malykhnik.jwttokenrefreshtoken.repository.UserRepo;
+import com.malykhnik.jwttokenrefreshtoken.dto.securityDto.SignUpDto;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.Role;
+import com.malykhnik.jwttokenrefreshtoken.entity.securityEntity.User;
+import com.malykhnik.jwttokenrefreshtoken.repository.securityRepository.RoleRepo;
+import com.malykhnik.jwttokenrefreshtoken.repository.securityRepository.UserRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
