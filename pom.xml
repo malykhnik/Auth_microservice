@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.malykhnik</groupId>
-    <artifactId>jwt-token-refresh-token</artifactId>
+    <artifactId>Auth_microservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>jwt-token-refresh-token</name>
     <description>jwt-token-refresh-token</description>

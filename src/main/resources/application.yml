@@ -4,7 +4,7 @@ spring:
   application:
     name: jwt-token-refresh-token
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_practice
+    url: jdbc:postgresql://localhost:5432/checker_services
     password: postgres
     username: postgres
     driver-class-name: org.postgresql.Driver
