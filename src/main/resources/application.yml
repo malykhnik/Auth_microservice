@@ -2,9 +2,9 @@ server:
   port: 8080
 spring:
   application:
-    name: jwt-token-refresh-token
+    name: Auth_microservice
   datasource:
-    url: jdbc:postgresql://localhost:5432/checker_services
+    url: jdbc:postgresql://auth_db:5432/auth_db
     password: postgres
     username: postgres
     driver-class-name: org.postgresql.Driver
@@ -21,7 +21,7 @@ spring:
     type: redis
   data:
     redis:
-      host: localhost
+      host: redis
       port: 6379
 jwt:
   secret-key: weqjfnqbewfoi2371432yogr8qfwwgefb1ffh17803gf18g34fbasdsaf134fqf
