@@ -1,3 +1,7 @@
+# Auth Microservice
+
+Полезные ссылки:
+
 https://medium.com/@mhmdzeeshan/spring-boot-3-spring-security-6-jwt-authentication-authorization-98702d6313a5
 
 https://medium.com/@mhmdzeeshan/jwt-refresh-token-spring-security-c5b4646cdbd9
