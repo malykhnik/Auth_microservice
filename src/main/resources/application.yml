@@ -4,8 +4,8 @@ spring:
   application:
     name: Auth_microservice
   datasource:
-#    url: jdbc:postgresql://auth_db:5432/auth_db
-    url: jdbc:postgresql://localhost:5432/auth_db
+    url: jdbc:postgresql://auth-microservice-db:5432/auth_db
+#    url: jdbc:postgresql://localhost:5432/auth_db
     password: postgres
     username: postgres
     driver-class-name: org.postgresql.Driver
@@ -22,7 +22,7 @@ spring:
     type: redis
   data:
     redis:
-      host: redis-server
+      host: redis
       port: 6379
   flyway:
     enabled: true
