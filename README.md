@@ -1,6 +1,6 @@
 # Auth Microservice
 
-Microservice for my Checker_service App.
+ Auth Microservice for my Checker_service App.
 
 Полезные ссылки:
 
